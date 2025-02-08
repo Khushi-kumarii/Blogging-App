@@ -1,0 +1,21 @@
+{
+    "installCommand":"npm install --legacy-peer-deeps",
+    "version": 2,
+    "builds": [
+      {
+        "src": "server.js",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "src/**/*",
+        "use": "@vercel/static",
+        "config": { "distDir": "frontend/dist" }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/"
+      }
+    ]
+  }
