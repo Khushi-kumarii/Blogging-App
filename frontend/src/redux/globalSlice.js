@@ -41,8 +41,13 @@ export const { setBlogs, setLoading, setError, resetBlogs, setMode, toggleMode }
 export const fetchBlogs = () => async (dispatch) => {
   dispatch(setLoading(true));
   try {
-    const response = await axios.get(`${import.meta.env.VITE_REACT_APP}/api/blogs`);
-    dispatch(setBlogs(response.data.blogs));
+   const response = await axios.get(
+  `${import.meta.env.VITE_REACT_APP}/api/blog/all`
+);
+
+console.log(response.data); // check response
+
+dispatch(setBlogs(response.data.allBlogs));
   } catch (error) {
     dispatch(setError(error.message || "Failed to fetch blogs."));
   } finally {

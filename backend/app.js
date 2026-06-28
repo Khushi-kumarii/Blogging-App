@@ -35,9 +35,6 @@ app.use(
 app.use("/api/user", userRoutes);
 app.use("/api/blog", blogRoutes);
 
-
-db();
-
 app.use(errormiddleware);
  
 export default app;
